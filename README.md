@@ -16,7 +16,7 @@ The Surf programming language is, or plans to be, a general-purpose scripting la
 A simple example program in Surf might look like
 
 ```
-fn add = (a: int, b: int) -> a + b;
+let add = (a: int, b: int) -> a + b;
 
 println(add(5, 10))
 ```
@@ -30,7 +30,7 @@ This is a block comment.
 The fibonacci function takes in an integer n and 
 generates the n-th term of the Fibonacci sequence.
 ---
-fn fibonacci = (n) => {
+let fibonacci = (n) => {
   if (n <= 1) {
     return 0;
   }
@@ -52,7 +52,7 @@ This is a block comment.
 The fibonacci function takes in an integer n and 
 generates the n-th term of the Fibonacci sequence.
 ---
-fn fibonacci = (n: int) => {
+let fibonacci = (n: int): int => {
   if (n <= 1) {
     return 0;
   }
@@ -85,28 +85,34 @@ enum Ord {
   GT,
 }
 
-interface Comparable: T {
+interface Comparable[T] {
   compareTo: (other: T) -> Ord,
 }
 
-interface Set[T | Hashes>] implements Equatable[T] {
+interface Set[T of Hashable] implements Equatable[T] {
   add: (item: T) -> int,
 
   remove: (item: T) -> int,
 
+  contains: (item: T) -> 
+
   size: () -> int,
 }
 
-interface DumbSet[T] implements Set[T] {
-  elements: []: List[T],
-  add: (item: T) -> {
+class DumbSet[T] implements Set[T] {
+
+  elements = []: List[T],
+
+  add(item: T) -> {
     elements += item;
     return elements.size();
   },
-  remove: (item: T) -> {
+
+  remove(item: T) -> {
     elements.remove(item);
     return elements.size();
   },
+
   size:
 }
 ```
