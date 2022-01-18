@@ -1,0 +1,5 @@
+let s = 'hi';
+const crazyString = "I'm a crazy string
+
+with newlines and stuff";
+let stringWithEscapes = "I'm a string with \t \n escapes";
