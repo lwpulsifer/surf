@@ -2,6 +2,8 @@ use std::env;
 use std::fs;
 use std::process;
 
+mod lexer;
+
 fn main() {
   let args: Vec<String> = env::args().collect();
   let filename = &args[1];
@@ -13,6 +15,11 @@ fn main() {
     .expect("Something went wrong reading the file.");
 
   // Lex
+
+  let lex = lexer::lexer::lex(&_filecontents);
+  for token in lex {
+    println!("Token: {:?}", token);
+  }
 
   // Parse
 
