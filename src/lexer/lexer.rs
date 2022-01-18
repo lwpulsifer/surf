@@ -20,15 +20,6 @@ pub enum Token {
     #[token("false")]
     False,
 
-    #[token("for")]
-    For,
-
-    #[token("in")]
-    In,
-
-    #[token("while")]
-    While,
-
     #[token("if")]
     If,
 
