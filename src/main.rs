@@ -3,6 +3,7 @@ use std::fs;
 use std::process;
 
 mod lexer;
+mod parser;
 
 fn main() {
   let args: Vec<String> = env::args().collect();
@@ -16,12 +17,12 @@ fn main() {
 
   // Lex
 
-  let lex = lexer::lexer::lex(&_filecontents);
-  for token in lex {
-    println!("Token: {:?}", token);
-  }
+  let lex = &mut lexer::lexer::lex(&_filecontents);
 
   // Parse
+
+  let ast = parser::parser::parse(lex);
+  println!("AST: {:?}", ast);
 
   // Do more cool stuff
 

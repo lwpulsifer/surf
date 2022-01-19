@@ -1,4 +1,4 @@
-use logos::{Logos};
+use logos::Logos;
 
 #[derive(Logos, Debug, PartialEq)]
 pub enum Token {
@@ -41,6 +41,12 @@ pub enum Token {
 
     #[token(".")]
     Accessor,
+
+    #[token("[")]
+    LBrack,
+
+    #[token("]")]
+    RBrack,
 
     // -----------
     // Operators
